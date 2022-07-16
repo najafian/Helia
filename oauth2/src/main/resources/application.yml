@@ -2,3 +2,8 @@ logging:
   level:
     org.springframework.security.web.access.intercept.FilterSecurityInterceptor: DEBUG
     web: DEBUG
+
+
+jwt:
+  private-key: classpath:keys/private_key.pem
+  public-key: classpath:keys/public_key.pem
