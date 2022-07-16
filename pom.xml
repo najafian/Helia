@@ -3,22 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <parent>
-        <groupId>org.helia</groupId>
-        <artifactId>toturial</artifactId>
-        <version>0.0.1</version>
-        <relativePath/>
-    </parent>
-
-    <artifactId>maven-parent.</artifactId>
-    <packaging>pom</packaging>
-
+    <groupId>org.helia</groupId>
+    <artifactId>toturial</artifactId>
+    <version>0.0.1</version>
     <name>Helia applications</name>
     <description>This project consists of Authorization server, dashboard,...</description>
     <url>https://no-url</url>
 
     <modules>
-        <module/>
+        <module>oauth2</module>
     </modules>
 </project>
