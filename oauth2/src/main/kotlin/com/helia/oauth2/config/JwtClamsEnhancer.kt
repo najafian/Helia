@@ -42,7 +42,7 @@ class JwtClamsEnhancer(private val clientDetailsService: ClientDetailsService) :
         if (authentication.principal is UserAccountDetailEntity) {
             val principal = authentication.principal as UserAccountDetailEntity
             val account = principal.getUserAccount();
-            additionalInformation[JwtClaimNames.SUB] = account.userId;
+            additionalInformation[JwtClaimNames.SUB] = account.userId!!;
             additionalInformation["email_verified"] = true;
             additionalInformation["user"] = ObjectMapper().writeValueAsString(account)
         }

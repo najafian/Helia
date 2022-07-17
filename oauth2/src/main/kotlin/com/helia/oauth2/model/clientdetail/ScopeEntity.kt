@@ -5,14 +5,15 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "scope")
-data class ScopeEntity (
+class ScopeEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "scope_id")
-    val roleId:Long,
+    var roleId:Long?=null
     @Column(name = "scope_name")
-    val name:String,
+    var name:String?=null
 
     @ManyToMany(mappedBy = "clientScopes")
-    val clientDetails: Set<ClientDetailEntity>
-     )
+    var clientDetails: Set<ClientDetailEntity>?=null
+}
+

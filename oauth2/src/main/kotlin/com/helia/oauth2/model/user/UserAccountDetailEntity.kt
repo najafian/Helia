@@ -8,18 +8,14 @@ class UserAccountDetailEntity(private val userAccountEntity: UserAccountEntity) 
 
     fun getUserAccount()=userAccountEntity
 
-    override fun getAuthorities(): Collection<GrantedAuthority?> {
-//        return AuthorityUtils.createAuthorityList(*userAccount.userRole!!.map { it.name }.toTypedArray())
-   return AuthorityUtils.createAuthorityList("")
-    }
+    override fun getAuthorities(): Collection<GrantedAuthority?> =
+         AuthorityUtils.createAuthorityList(*userAccountEntity.userRoleEntity!!.map { it.name }.toTypedArray())
 
-    override fun getPassword(): String {
-        return userAccountEntity.password
-    }
+    override fun getPassword()=
+         userAccountEntity.password!!
 
-    override fun getUsername(): String {
-        return userAccountEntity.email
-    }
+    override fun getUsername()=
+         userAccountEntity.email!!
 
     override fun isAccountNonExpired(): Boolean {
         return true

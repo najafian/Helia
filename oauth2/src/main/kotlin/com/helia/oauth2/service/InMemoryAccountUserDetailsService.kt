@@ -12,7 +12,7 @@ class InMemoryAccountUserDetailsService : UserDetailsService {
     @Throws(UsernameNotFoundException::class)
     override fun loadUserByUsername(username: String): UserDetails {
 
-        val userAccountEntity = UserAccountEntity(1, "", "")
+        val userAccountEntity = UserAccountEntity()
                 ?: throw UsernameNotFoundException(String.format("%s is not found.", username)) //this.accounts.get(username /* email */); check from DB
         return UserAccountDetailEntity(userAccountEntity)
     }

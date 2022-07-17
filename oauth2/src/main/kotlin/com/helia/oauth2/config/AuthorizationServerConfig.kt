@@ -1,6 +1,7 @@
 package com.helia.oauth2.config
 
 import com.helia.oauth2.data.repository.ClientDetailRepository
+import com.helia.oauth2.model.clientdetail.ClientDetailEntity
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
@@ -41,7 +42,7 @@ class AuthorizationServerConfig(private val clientDetailRepositories: ClientDeta
     fun fillClientList(){
         val findAll = clientDetailRepositories.findAll()
         findAll.forEach {
-            clientDetailEntities[it.clientId]=(BaseClientDetails(
+            clientDetailEntities[it.clientId!!]=(BaseClientDetails(
                 it.clientId,
                 it.resourceIds,
                 it.clientScopes!!.map {m-> m.name }.reduce { acc, s -> "$acc,$s" },

@@ -5,37 +5,38 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "user_account")
-class UserAccountEntity(
+class UserAccountEntity{
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy=GenerationType.AUTO)
         @Column(name = "user_id")
-        var userId: Long,
+        var userId: Long?=null
         @Column(name = "email")
-        var email: String,
+        var email: String?=null
         @Column(name = "password")
-        var password: String,
+        var password: String?=null
         @ManyToMany
         @JoinTable(
                 name = "user_role",
                 joinColumns = [JoinColumn(name = "user_id")],
                 inverseJoinColumns = [JoinColumn(name = "role_id")])
-        var userRoleEntity: Set<RoleEntity>?=null,
+        var userRoleEntity: Set<RoleEntity>?=null
         @Column(name = "app_id")
-        var appId: Long?=0,
+        var appId: Long?=null
         @Column(name = "company_id")
-        var companyId: Long?=0,
+        var companyId: Long?=null
         @Column(name = "name")
-        var name: String?="",
+        var name: String?=null
         @Column(name = "lastName")
-        var lastName: String?="",
+        var lastName: String?=null
         @Column(name = "locked")
-        var isLocked: Boolean?=true,
+        var isLocked: Boolean?=null
         @Column(name = "expirationDate")
-        var expirationDate: ZonedDateTime?=null,
+        var expirationDate: ZonedDateTime?=null
         @Column(name = "enabled")
-        var isEnabled: Boolean?=true,
+        var isEnabled: Boolean?=null
         @Column(name = "created")
-        var created:ZonedDateTime?=null,
+        var created:ZonedDateTime?=null
         @Column(name = "deleted")
         var deleted:ZonedDateTime?=null
-)
+}
+

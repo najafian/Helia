@@ -6,13 +6,13 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "authority")
-data class AuthorityEntity (
+class AuthorityEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "authority_id")
-    val id:Long,
+    var id:Long?=null
     @Column(name = "name")
-    val name:String,
+    var name:String?=null
     @ManyToMany(mappedBy = "clientAuthorities")
-    val userAccountEntities: Set<ClientDetailEntity>
-)
+    var userAccountEntities: Set<ClientDetailEntity>?=null
+}
