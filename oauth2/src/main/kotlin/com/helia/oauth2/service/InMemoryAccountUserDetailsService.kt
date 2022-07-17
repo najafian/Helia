@@ -1,7 +1,7 @@
 package com.helia.oauth2.service
 
-import com.helia.oauth2.model.UserAccount
-import com.helia.oauth2.model.UserAccountDetails
+import com.helia.oauth2.model.user.UserAccountEntity
+import com.helia.oauth2.model.user.UserAccountDetailEntity
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.core.userdetails.UsernameNotFoundException
@@ -12,8 +12,8 @@ class InMemoryAccountUserDetailsService : UserDetailsService {
     @Throws(UsernameNotFoundException::class)
     override fun loadUserByUsername(username: String): UserDetails {
 
-        val userAccount = UserAccount(1, "", "", listOf(""))
+        val userAccountEntity = UserAccountEntity(1, "", "")
                 ?: throw UsernameNotFoundException(String.format("%s is not found.", username)) //this.accounts.get(username /* email */); check from DB
-        return UserAccountDetails(userAccount)
+        return UserAccountDetailEntity(userAccountEntity)
     }
 }

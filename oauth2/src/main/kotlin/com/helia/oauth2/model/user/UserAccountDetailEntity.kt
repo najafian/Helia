@@ -1,23 +1,24 @@
-package com.helia.oauth2.model
+package com.helia.oauth2.model.user
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.AuthorityUtils
 import org.springframework.security.core.userdetails.UserDetails
 
-class UserAccountDetails(private val userAccount: UserAccount) : UserDetails {
+class UserAccountDetailEntity(private val userAccountEntity: UserAccountEntity) : UserDetails {
 
-    fun getUserAccount()=userAccount
+    fun getUserAccount()=userAccountEntity
 
     override fun getAuthorities(): Collection<GrantedAuthority?> {
-        return AuthorityUtils.createAuthorityList(*userAccount.roles.toTypedArray())
+//        return AuthorityUtils.createAuthorityList(*userAccount.userRole!!.map { it.name }.toTypedArray())
+   return AuthorityUtils.createAuthorityList("")
     }
 
     override fun getPassword(): String {
-        return userAccount.password
+        return userAccountEntity.password
     }
 
     override fun getUsername(): String {
-        return userAccount.email
+        return userAccountEntity.email
     }
 
     override fun isAccountNonExpired(): Boolean {

@@ -1,7 +1,7 @@
 package com.helia.oauth2.config
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.helia.oauth2.model.UserAccountDetails
+import com.helia.oauth2.model.user.UserAccountDetailEntity
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken
 import org.springframework.security.oauth2.common.OAuth2AccessToken
@@ -39,8 +39,8 @@ class JwtClamsEnhancer(private val clientDetailsService: ClientDetailsService) :
         if (nonce != null) {
             additionalInformation[OidcParameterNames.NONCE] = nonce
         }
-        if (authentication.principal is UserAccountDetails) {
-            val principal = authentication.principal as UserAccountDetails
+        if (authentication.principal is UserAccountDetailEntity) {
+            val principal = authentication.principal as UserAccountDetailEntity
             val account = principal.getUserAccount();
             additionalInformation[JwtClaimNames.SUB] = account.userId;
             additionalInformation["email_verified"] = true;

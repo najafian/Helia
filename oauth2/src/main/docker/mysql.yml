@@ -5,9 +5,9 @@ services:
     # volumes:
     #   - ~/volumes/jhipster/khipster/mysql/:/var/lib/mysql/
     environment:
-      - MYSQL_USER=helia
-      - MYSQL_PASSWORD=najafian
-      - MYSQL_ROOT_PASSWORD=najafian
+#      - MYSQL_USER=helia
+#      - MYSQL_PASSWORD=najafian
+#      - MYSQL_ROOT_PASSWORD=najafian
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=helia
     # If you want to expose these ports outside your dev PC,
